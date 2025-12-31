@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="MessDetectorOptionsConfiguration">
+    <option name="transferred" value="true" />
+  </component>
+  <component name="PHPCSFixerOptionsConfiguration">
+    <option name="transferred" value="true" />
+  </component>
+  <component name="PHPCodeSnifferOptionsConfiguration">
+    <option name="highlightLevel" value="WARNING" />
+    <option name="transferred" value="true" />
+  </component>
+  <component name="PhpIncludePathManager">
+    <include_path>
+      <path value="$PROJECT_DIR$/auth-microservice/vendor/phpdocumentor/type-resolver" />
+      <path value="$PROJECT_DIR$/auth-microservice/vendor/phpdocumentor/reflection-common" />
+      <path value="$PROJECT_DIR$/auth-microservice/vendor/phpdocumentor/reflection-docblock" />
+      <path value="$PROJECT_DIR$/auth-microservice/vendor/symfony/security-bundle" />
+      <path value="$PROJECT_DIR$/auth-microservice/vendor/symfony/password-hasher" />
+      <path value="$PROJECT_DIR$/auth-microservice/vendor/symfony/type-info" />
+      <path value="$PROJECT_DIR$/auth-microservice/vendor/symfony/property-info" />
+      <path value="$PROJECT_DIR$/auth-microservice/vendor/symfony/security-csrf" />
+      <path value="$PROJECT_DIR$/auth-microservice/vendor/symfony/process" />
+      <path value="$PROJECT_DIR$/auth-microservice/vendor/symfony/security-http" />
+      <path value="$PROJECT_DIR$/auth-microservice/vendor/nikic/php-parser" />
+      <path value="$PROJECT_DIR$/auth-microservice/vendor/symfony/property-access" />
+      <path value="$PROJECT_DIR$/auth-microservice/vendor/symfony/polyfill-php83" />
+      <path value="$PROJECT_DIR$/auth-microservice/vendor/symfony/security-core" />
+      <path value="$PROJECT_DIR$/auth-microservice/vendor/symfony/clock" />
+      <path value="$PROJECT_DIR$/auth-microservice/vendor/symfony/serializer" />
+      <path value="$PROJECT_DIR$/auth-microservice/vendor/lexik/jwt-authentication-bundle" />
+      <path value="$PROJECT_DIR$/auth-microservice/vendor/doctrine/dbal" />
+      <path value="$PROJECT_DIR$/auth-microservice/vendor/doctrine/deprecations" />
+      <path value="$PROJECT_DIR$/auth-microservice/vendor/doctrine/collections" />
+      <path value="$PROJECT_DIR$/auth-microservice/vendor/symfony/doctrine-bridge" />
+      <path value="$PROJECT_DIR$/auth-microservice/vendor/symfony/stopwatch" />
+      <path value="$PROJECT_DIR$/auth-microservice/vendor/symfony/polyfill-php84" />
+      <path value="$PROJECT_DIR$/auth-microservice/vendor/symfony/validator" />
+      <path value="$PROJECT_DIR$/auth-microservice/vendor/psr/cache" />
+      <path value="$PROJECT_DIR$/auth-microservice/vendor/lcobucci/jwt" />
+      <path value="$PROJECT_DIR$/auth-microservice/vendor/doctrine/persistence" />
+      <path value="$PROJECT_DIR$/auth-microservice/vendor/doctrine/sql-formatter" />
+      <path value="$PROJECT_DIR$/auth-microservice/vendor/doctrine/migrations" />
+      <path value="$PROJECT_DIR$/auth-microservice/vendor/doctrine/orm" />
+      <path value="$PROJECT_DIR$/auth-microservice/vendor/doctrine/instantiator" />
+      <path value="$PROJECT_DIR$/auth-microservice/vendor/doctrine/lexer" />
+      <path value="$PROJECT_DIR$/auth-microservice/vendor/doctrine/event-manager" />
+      <path value="$PROJECT_DIR$/auth-microservice/vendor/nelmio/cors-bundle" />
+      <path value="$PROJECT_DIR$/auth-microservice/vendor/doctrine/inflector" />
+      <path value="$PROJECT_DIR$/auth-microservice/vendor/composer" />
+      <path value="$PROJECT_DIR$/auth-microservice/vendor/doctrine/doctrine-bundle" />
+      <path value="$PROJECT_DIR$/auth-microservice/vendor/doctrine/doctrine-migrations-bundle" />
+      <path value="$PROJECT_DIR$/auth-microservice/vendor/symfony/finder" />
+      <path value="$PROJECT_DIR$/auth-microservice/vendor/symfony/flex" />
+      <path value="$PROJECT_DIR$/auth-microservice/vendor/symfony/event-dispatcher-contracts" />
+      <path value="$PROJECT_DIR$/auth-microservice/vendor/symfony/filesystem" />
+      <path value="$PROJECT_DIR$/auth-microservice/vendor/symfony/error-handler" />
+      <path value="$PROJECT_DIR$/auth-microservice/vendor/symfony/event-dispatcher" />
+      <path value="$PROJECT_DIR$/auth-microservice/vendor/symfony/deprecation-contracts" />
+      <path value="$PROJECT_DIR$/auth-microservice/vendor/symfony/dotenv" />
+      <path value="$PROJECT_DIR$/auth-microservice/vendor/symfony/console" />
+      <path value="$PROJECT_DIR$/auth-microservice/vendor/psr/clock" />
+      <path value="$PROJECT_DIR$/auth-microservice/vendor/symfony/dependency-injection" />
+      <path value="$PROJECT_DIR$/auth-microservice/vendor/symfony/cache-contracts" />
+      <path value="$PROJECT_DIR$/auth-microservice/vendor/symfony/config" />
+      <path value="$PROJECT_DIR$/auth-microservice/vendor/psr/log" />
+      <path value="$PROJECT_DIR$/auth-microservice/vendor/symfony/cache" />
+      <path value="$PROJECT_DIR$/auth-microservice/vendor/psr/container" />
+      <path value="$PROJECT_DIR$/auth-microservice/vendor/psr/event-dispatcher" />
+      <path value="$PROJECT_DIR$/auth-microservice/vendor/webmozart/assert" />
+      <path value="$PROJECT_DIR$/auth-microservice/vendor/symfony/var-exporter" />
+      <path value="$PROJECT_DIR$/auth-microservice/vendor/symfony/yaml" />
+      <path value="$PROJECT_DIR$/auth-microservice/vendor/symfony/string" />
+      <path value="$PROJECT_DIR$/auth-microservice/vendor/symfony/var-dumper" />
+      <path value="$PROJECT_DIR$/auth-microservice/vendor/symfony/runtime" />
+      <path value="$PROJECT_DIR$/auth-microservice/vendor/symfony/service-contracts" />
+      <path value="$PROJECT_DIR$/auth-microservice/vendor/symfony/polyfill-php85" />
+      <path value="$PROJECT_DIR$/auth-microservice/vendor/symfony/routing" />
+      <path value="$PROJECT_DIR$/auth-microservice/vendor/symfony/polyfill-intl-normalizer" />
+      <path value="$PROJECT_DIR$/auth-microservice/vendor/symfony/polyfill-mbstring" />
+      <path value="$PROJECT_DIR$/auth-microservice/vendor/symfony/http-kernel" />
+      <path value="$PROJECT_DIR$/auth-microservice/vendor/symfony/translation-contracts" />
+      <path value="$PROJECT_DIR$/auth-microservice/vendor/symfony/polyfill-intl-grapheme" />
+      <path value="$PROJECT_DIR$/auth-microservice/vendor/symfony/framework-bundle" />
+      <path value="$PROJECT_DIR$/auth-microservice/vendor/symfony/http-foundation" />
+      <path value="$PROJECT_DIR$/auth-microservice/vendor/symfony/maker-bundle" />
+      <path value="$PROJECT_DIR$/auth-microservice/vendor/phpstan/phpdoc-parser" />
+      <path value="$PROJECT_DIR$/auth-microservice/vendor/doctrine/annotations" />
+    </include_path>
+  </component>
+  <component name="PhpProjectSharedConfiguration" php_language_level="8.2">
+    <option name="suggestChangeDefaultLanguageLevel" value="false" />
+  </component>
+  <component name="PhpStanOptionsConfiguration">
+    <option name="transferred" value="true" />
+  </component>
+  <component name="PsalmOptionsConfiguration">
+    <option name="transferred" value="true" />
+  </component>
+</project>
