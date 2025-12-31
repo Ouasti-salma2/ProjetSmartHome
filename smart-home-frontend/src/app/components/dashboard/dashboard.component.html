@@ -1,0 +1,139 @@
+<div class="dashboard-container">
+  <!-- Header avec bouton déconnexion -->
+  <div class="header">
+    <div class="logo">
+      <h1>🏠 Smart Home</h1>
+    </div>
+    <div class="user-info">
+      <span class="welcome">Bonjour, {{ user?.name || user?.email }}</span>
+      <button class="btn-logout" (click)="logout()">
+        🔓 Déconnexion
+      </button>
+    </div>
+  </div>
+
+  <!-- Contenu principal -->
+  <div class="content">
+
+    <!-- Message d'erreur -->
+    <div *ngIf="errorMessage" class="alert alert-error">
+      {{ errorMessage }}
+    </div>
+
+    <!-- Header de la section de equepement -->
+    <div class="devices-header">
+      <h2>📱 Mes Équipements</h2>
+      <button class="btn-add" (click)="showCreateForm = !showCreateForm">
+        {{ showCreateForm ? '❌ Annuler' : '➕ Ajouter un équipement' }}
+      </button>
+    </div>
+
+    <!-- Formulaire de création  equpement-->
+    <div *ngIf="showCreateForm" class="create-form">
+      <h3>Nouvel équipement</h3>
+      <div class="form-row">
+        <div class="form-group">
+          <label>Nom</label>
+          <input
+            type="text"
+            [(ngModel)]="newDevice.name"
+            placeholder="Ex: Lumière salon"
+            class="input">
+        </div>
+        <div class="form-group">
+          <label>Type</label>
+          <select [(ngModel)]="newDevice.type" class="input">
+            <option value="Light">💡 Lumière</option>
+            <option value="Temperature">🌡️ Thermostat</option>
+            <option value="Lock">🔒 Serrure</option>
+            <option value="Camera">📷 Caméra</option>
+            <option value="Alarm">🚨 Alarme</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label>Localisation</label>
+          <input
+            type="text"
+            [(ngModel)]="newDevice.location"
+            placeholder="Ex: Salon"
+            class="input">
+        </div>
+        <button class="btn-create" (click)="createDevice()">
+          ✅ Créer
+        </button>
+      </div>
+    </div>
+
+    <!-- Loading -->
+    <div *ngIf="isLoading" class="loading">
+      <div class="spinner"></div>
+      <p>Chargement des équipements...</p>
+    </div>
+
+    <!-- Liste des des equipement -->
+    <div *ngIf="!isLoading && devices.length > 0" class="devices-grid">
+      <div *ngFor="let device of devices" class="device-card">
+
+        <!-- Header de la card -->
+        <div class="device-header">
+          <div class="device-icon">
+            <span *ngIf="device.type === 'Light'">💡</span>
+            <span *ngIf="device.type === 'Temperature'">🌡️</span>
+            <span *ngIf="device.type === 'Lock'">🔒</span>
+            <span *ngIf="device.type === 'Camera'">📷</span>
+            <span *ngIf="device.type === 'Alarm'">🚨</span>
+          </div>
+          <button class="btn-delete" (click)="deleteDevice(device.id)" title="Supprimer">
+            🗑️
+          </button>
+        </div>
+
+        <!-- Infos du equipement -->
+        <div class="device-info">
+          <h3>{{ device.name }}</h3>
+          <p class="device-location">📍 {{ device.location }}</p>
+          <p class="device-type">{{ device.type }}</p>
+        </div>
+
+        <!-- Status et Toggle -->
+        <div class="device-footer">
+          <span
+            class="status-badge"
+            [class.active]="device.isActive"
+            [class.inactive]="!device.isActive">
+            {{ device.isActive ? '✅ ON' : '⭕ OFF' }}
+          </span>
+          <button
+            class="btn-toggle"
+            [class.btn-on]="device.isActive"
+            [class.btn-off]="!device.isActive"
+            (click)="toggleDevice(device)">
+            {{ device.isActive ? '🔴 Éteindre' : '🟢 Allumer' }}
+          </button>
+        </div>
+
+        <!-- Température si applicable -->
+        <div *ngIf="device.temperature" class="device-temp">
+          🌡️ {{ device.temperature }}°C
+        </div>
+      </div>
+    </div>
+
+    <!-- Message si aucun equipement -->
+    <div *ngIf="!isLoading && devices.length === 0" class="no-devices">
+      <div class="empty-icon">📦</div>
+      <h3>Aucun équipement</h3>
+      <p>Ajoutez votre premier équipement pour commencer !</p>
+      <button class="btn-add-first" (click)="showCreateForm = true">
+        ➕ Ajouter mon premier équipement
+      </button>
+      <p class="register-link" style="text-align: center; margin-top: 20px; color: #666;">
+        Pas de compte ?
+        <a routerLink="/register" style="color: #667eea; text-decoration: none; font-weight: 600;">
+          S'inscrire
+        </a>
+      </p>
+    </div>
+
+  </div>
+</div>

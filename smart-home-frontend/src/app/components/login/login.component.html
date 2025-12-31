@@ -1,0 +1,50 @@
+
+
+<div class="login-container">
+  <div class="login-card">
+    <h1>Connexion</h1>
+
+    <!-- Messages d'erreur avecsuccès -->
+    <div *ngIf="errorMessage" class="alert alert-error">
+      {{ errorMessage }}
+    </div>
+    <div *ngIf="successMessage" class="alert alert-success">
+      {{ successMessage }}
+    </div>
+
+    <!-- Formulaire de connexion -->
+    <form (ngSubmit)="onSubmit()">
+      <div class="form-group">
+        <label>Email</label>
+        <input
+          type="email"
+          [(ngModel)]="email"
+          name="email"
+          required
+          class="form-control"
+          placeholder="test7@test.com">
+      </div>
+
+      <div class="form-group">
+        <label>Mot de passe</label>
+        <input
+          type="password"
+          [(ngModel)]="password"
+          name="password"
+          required
+          class="form-control"
+          placeholder="••••••">
+      </div>
+
+      <button type="submit" [disabled]="isLoading" class="btn-login">
+        {{ isLoading ? 'Connexion...' : 'Se connecter' }}
+      </button>
+    </form>
+
+    <!--  LIEN VER INSCRIPTION CORRIGE -->
+    <p class="register-link">
+      Pas de compte ?
+      <a [routerLink]="['/register']" class="link">S'inscrire</a>
+    </p>
+  </div>
+</div>
