@@ -7,24 +7,25 @@ var builder = WebApplication.CreateBuilder(args);
 
 var connectionString = builder.Configuration.GetConnectionString("DefaultConnection");
 
-// Ajouter le DbContext pour EF Core
 builder.Services.AddDbContext<AppDbContext>(options =>
     options.UseMySql(connectionString,
         ServerVersion.AutoDetect(connectionString)));
 
-// ✅ Ajouter les repositories
+// Repositories existants
 builder.Services.AddScoped<IPieceRepository, PieceRepository>();
 builder.Services.AddScoped<IEquipementRepository, EquipementRepository>();
 
-// Ajouter les controllers
+// ← AJOUTE CES DEUX LIGNES
+builder.Services.AddScoped<IConditionRepository, ConditionRepository>();
+builder.Services.AddScoped<IRegleRepository, RegleRepository>();
+
 builder.Services.AddControllers();
 
-// ✅ Ajouter CORS
 builder.Services.AddCors(options =>
 {
     options.AddPolicy("AllowAngular", policy =>
     {
-        policy.WithOrigins("http://localhost:4200") // ton Angular
+        policy.WithOrigins("http://localhost:4200")
               .AllowAnyHeader()
               .AllowAnyMethod();
     });
@@ -32,13 +33,7 @@ builder.Services.AddCors(options =>
 
 var app = builder.Build();
 
-// ✅ Middleware JWT
 app.UseMiddleware<JwtMiddleware>();
-
-// ✅ Activer CORS
 app.UseCors("AllowAngular");
-
-// Map controllers
 app.MapControllers();
-
 app.Run();

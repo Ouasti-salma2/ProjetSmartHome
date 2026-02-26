@@ -27,6 +27,8 @@ namespace pfa__.net.Models
         [ForeignKey("Id_Piece")]
         public Piece Piece { get; set; }
 
+     public ICollection<Regle> Regles { get; set; } = new List<Regle>();
+        public ICollection<ConditionHistorique> ConditionHistoriques { get; set; } = new List<ConditionHistorique>();
 
     }
 }

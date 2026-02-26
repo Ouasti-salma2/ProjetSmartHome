@@ -15,14 +15,14 @@ const routes: Routes = [
     children: [
       { path: '', redirectTo: 'dashboard', pathMatch: 'full' },
 
-      // Dashboard (accessible uniquement admin)
+      // Dashboard (admin only)
       {
         path: 'dashboard',
         loadComponent: () =>
           import('./demo/dashboard/dashboard.component')
             .then(c => c.DashboardComponent),
         canActivate: [AuthGuard],
-        data: { roles: ['ADMIN'] } // seul admin peut accéder
+        data: { roles: ['ADMIN'] }
       },
 
       // Profils
@@ -30,7 +30,7 @@ const routes: Routes = [
         path: 'client-profile',
         loadComponent: () => import('./pages/profile/profile.component').then(c => c.ProfileComponent),
         canActivate: [AuthGuard],
-        data: { roles: ['CLIENT'] } // seul client peut accéder
+        data: { roles: ['CLIENT'] }
       },
       {
         path: 'client-profile/edit',
@@ -70,27 +70,49 @@ const routes: Routes = [
         canActivate: [AuthGuard],
         data: { roles: ['ADMIN'] }
       },
-      // Pieces
+
+      // ← AJOUTÉ depuis le projet de ta copine
+      // Pieces (client only)
       {
         path: 'pieces',
         loadComponent: () => import('./pieces/pieces').then(c => c.PiecesComponent),
         canActivate: [AuthGuard],
-        data: { roles: ['CLIENT'] } // seul le rôle CLIENT peut accéder
+        data: { roles: ['CLIENT'] }
       },
+
+      // ← AJOUTÉ depuis le projet de ta copine
+      // Client Dashboard
       {
         path: 'client-dash',
         loadComponent: () => import('./client-dashb/client-dashb').then(c => c.ClientDashb),
         canActivate: [AuthGuard],
-        data: { roles: ['CLIENT'] } 
+        data: { roles: ['CLIENT'] }
       },
+
+      // ← AJOUTÉ depuis le projet de ta copine
+      // Equipement
       {
         path: 'equipement/:id',
         loadComponent: () => import('./equipement/equipement').then(c => c.AddEquipementComponent),
         canActivate: [AuthGuard],
-        data: { roles: ['CLIENT'] } 
+        data: { roles: ['CLIENT'] }
       },
 
-      // Autres pages (tu peux ajouter AuthGuard si nécessaire)
+      // ← AJOUTÉ : tes pages Condition et Règle
+      {
+        path: 'condition',
+        loadComponent: () => import('./pages/condition/condition-form.component').then(c => c.ConditionFormComponent),
+        canActivate: [AuthGuard],
+        data: { roles: ['CLIENT'] }
+      },
+      {
+        path: 'regle',
+        loadComponent: () => import('./pages/regle/regle-form.component').then(c => c.RegleFormComponent),
+        canActivate: [AuthGuard],
+        data: { roles: ['CLIENT'] }
+      },
+
+      // Autres pages
       {
         path: 'basic',
         loadChildren: () =>
@@ -115,7 +137,7 @@ const routes: Routes = [
     ]
   },
 
-  // Auth (login / register)
+  // Auth
   {
     path: '',
     component: GuestComponent,

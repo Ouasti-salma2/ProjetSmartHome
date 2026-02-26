@@ -7,6 +7,8 @@ export const routes: Routes = [
     path: '',
     component: AdminComponent,
     children: [
+
+      // ===== PROFIL CLIENT =====
       {
         path: 'client-profile',
         children: [
@@ -24,15 +26,61 @@ export const routes: Routes = [
           }
         ]
       },
+
+      // ===== DASHBOARD ADMIN =====
       {
         path: 'dashboard',
         loadComponent: () =>
           import('./demo/dashboard/dashboard.component')
             .then(c => c.DashboardComponent)
       },
-      { path: '', redirectTo: 'dashboard', pathMatch: 'full' }
+
+      // ===== PAGES DE TA COPINE =====
+      {
+        path: 'pieces',
+        loadComponent: () =>
+          import('./pieces/pieces')
+            .then(c => c.PiecesComponent)
+      },
+      {
+        path: 'client-dash',
+        loadComponent: () =>
+          import('./client-dashb/client-dashb')
+            .then(c => c.ClientDashb)
+      },
+      {
+        path: 'equipement/:id',
+        loadComponent: () =>
+          import('./equipement/equipement')
+            .then(c => c.AddEquipementComponent)
+      },
+
+      // ===== TES PAGES SMART HOUSE =====
+      {
+        path: 'smarthouse',
+        loadComponent: () =>
+          import('./pages/dashboard/dashboard.component')
+            .then(c => c.DashboardComponent)
+      },
+      {
+        path: 'condition',
+        loadComponent: () =>
+          import('./pages/condition/condition-form.component')
+            .then(c => c.ConditionFormComponent)
+      },
+      {
+        path: 'regle',
+        loadComponent: () =>
+          import('./pages/regle/regle-form.component')
+            .then(c => c.RegleFormComponent)
+      },
+
+      // ===== REDIRECT PAR DÉFAUT =====
+      { path: '', redirectTo: 'smarthouse', pathMatch: 'full' }
     ]
   },
+
+  // ===== AUTH =====
   {
     path: '',
     component: GuestComponent,

@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<div class="dashboard-wrapper">
+
+  <!-- HEADER -->
+  <header class="dash-header">
+    <div class="header-left">
+      <div class="logo">
+        <span class="logo-icon">🏠</span>
+        <span class="logo-text">Smart<b>House</b></span>
+      </div>
+    </div>
+    <div class="header-center">
+      <div class="clock-display">
+        <span class="time">{{ currentTime }}</span>
+        <span class="date">{{ currentDate }}</span>
+      </div>
+    </div>
+    <div class="header-right">
+      <button class="btn-refresh" (click)="loadEquipements()">
+        <span>↻</span> Actualiser
+      </button>
+    </div>
+  </header>
+
+  <!-- LOADING -->
+  <div class="loading-screen" *ngIf="loading">
+    <div class="spinner"></div>
+    <p>Chargement des équipements...</p>
+  </div>
+
+  <!-- ERROR -->
+  <div class="error-banner" *ngIf="error">
+    <span>⚠️ {{ error }}</span>
+  </div>
+
+  <!-- CONTENT -->
+  <main class="dash-content" *ngIf="!loading && !error">
+
+    <!-- Stats bar -->
+    <div class="stats-bar">
+      <div class="stat-item">
+        <span class="stat-number">{{ equipements.length }}</span>
+        <span class="stat-label">Équipements</span>
+      </div>
+      <div class="stat-item">
+        <span class="stat-number">{{ pieceNames.length }}</span>
+        <span class="stat-label">Pièces</span>
+      </div>
+      <div class="stat-item">
+        <span class="stat-number">{{ equipements.length }}</span>
+        <span class="stat-label">Actifs</span>
+      </div>
+    </div>
+
+    <!-- Rooms -->
+    <div class="rooms-container">
+      <div class="room-section" *ngFor="let piece of pieceNames">
+        <div class="room-header">
+          <h2 class="room-title">
+            <span class="room-icon">🚪</span>
+            {{ piece }}
+            <span class="room-count">{{ groupedByPiece[piece].length }}</span>
+          </h2>
+        </div>
+
+        <div class="cards-grid">
+          <div class="eq-card" *ngFor="let eq of groupedByPiece[piece]">
+            <div class="card-top">
+              <div class="eq-icon">{{ getIcon(eq.type) }}</div>
+              <div class="eq-status" [ngClass]="getStatusClass(eq.type)">
+                {{ eq.type }}
+              </div>
+            </div>
+
+            <div class="card-body">
+              <h3 class="eq-name">{{ eq.nom }}</h3>
+              <p class="eq-type">{{ getTypeLabel(eq.type) }}</p>
+              <p class="eq-piece">📍 {{ eq.nomPiece }}</p>
+              <p class="eq-id">ID: #{{ eq.id }}</p>
+            </div>
+
+            <div class="card-actions">
+              <button class="btn-condition" (click)="goToCondition(eq)">
+                ⚡ Configurer
+              </button>
+              <button class="btn-regle" (click)="goToRegle(eq)">
+                📅 Planifier
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </main>
+</div>
